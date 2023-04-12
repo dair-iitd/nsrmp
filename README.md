@@ -1,7 +1,7 @@
 # Neuro-symbolic Robot Manipulation (NSRM)
 
 [**Learning Neuro-symbolic Programs for Language Guided Robot Manipulation**](https://arxiv.org/abs/2211.06652)  
-Namasivayam Kalithasan, Himanshu Singh, Vishal Bindal, Arnav Tuli, Vishwajeet Agrawal, Rahul Jain, Parag Singla, Rohan Paul     
+Namasivayam Kalithasan*, Himanshu Singh*, Vishal Bindal*, Arnav Tuli, Vishwajeet Agrawal, Rahul Jain, Parag Singla, Rohan Paul     
 [ICRA 2023](https://www.icra2023.org/) 
 
 For the latest updates, see: [nsrmp.github.io](https://nsrmp.github.io)
