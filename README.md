@@ -49,19 +49,20 @@ See [Downloads](#downloads) for links to model checkpoints and dataset. The path
 - `<path_to_dataset>` for dataset directory. Note that after unzipping the download, this directory should have the following files
         
         <path_to_dataset>
-        └── instructions-*.json
-        └── scenes-*.json
-	└── vocab.json
-        └── train
-        └── test
-        └── val
+		└── instructions-*.json
+		└── scenes-*.json
+		└── train
+		└── test
+		└── val
+		└── vocab.json
+	
 - `<path_to_dataset_general>` for dataset (generalizzation experiments). Note that after unzipping the download, this directory should have the following files
         
         <path_to_dataset_general>
-        └── color_comb
-        └── multi-objects
-        └── multi-step
-        └── type-combinatorial
+		└── color_comb
+		└── multi-objects
+		└── multi-step
+		└── type-combinatorial
 
 ### Evaluate NSRM
 
