@@ -4,9 +4,10 @@
 Namasivayam Kalithasan, Himanshu Singh, Vishal Bindal, Arnav Tuli, Vishwajeet Agrawal, Rahul Jain, Parag Singla, Rohan Paul     
 [ICRA 2023](https://www.icra2023.org/) 
 
+For the latest updates, see: [nsrmp.github.io](https://nsrmp.github.io)
+
 Given a natural language instruction, and an input and an output scene, our goal is to train a neuro-symbolic model which can output a manipulation program that can be executed by the robot on the input scene resulting in the desired output scene. Our approach is neuro-symbolic and can handle linguistic as well as perceptual variations, is end-to-end differentiable requiring no intermediate supervision, and makes use of symbolic reasoning constructs which operate on a latent neural object-centric representation, allowing for deeper reasoning over the input scene. Our experiments on a simulated environment with a 7-DOF manipulator, consisting of instructions with varying number of steps, as well as scenes with different number of objects, and objects with unseen attribute combinations, demonstrate that our model is robust to such variations, and significantly outperforms existing baselines, particularly in generalization settings.
 
-For the latest updates, see: [nsrmp.github.io](https://nsrmp.github.io)
 
 ## Index
 
@@ -23,8 +24,8 @@ For the latest updates, see: [nsrmp.github.io](https://nsrmp.github.io)
 
 - Clone the NSRM repository
 
-        git clone https://github.com/reail-iitd/nsrmp.git
-
+        git clone https://github.com/dair-iitd/nsrmp.git
+	
  - Add the root directory to PATH and PYTHONPATH
  
         cd nsrmp
@@ -50,6 +51,7 @@ See [Downloads](#downloads) for links to model checkpoints and dataset. The path
         <path_to_dataset>
         └── instructions-*.json
         └── scenes-*.json
+	└── vocab.json
         └── train
         └── test
         └── val
@@ -65,7 +67,7 @@ See [Downloads](#downloads) for links to model checkpoints and dataset. The path
 
 TODO
 ```bash
-python3 scripts/eval.py --dataset roboclevr --datadir ../data --train_scenes_json ../data/scenes_train_concepts.json --train_instructions_json ../data/instructions_train_concepts.json --vocab_json ../data/vocab.json  --use_cuda True --batch_size 16 --load_model_from_file model_action_concept.pth --training_target concept_embeddings
+jac-crun 0 scripts/eval.py --dataset roboclevr --datadir <path_to_dataset> --vocab_json --instruction_transform basic --use_cuda True --batch_size 32  --load_model_from_file <path_to_nsrm_checkpoint> 
 ```
 
 ### Evaluate baseline
@@ -95,7 +97,7 @@ TODO
 
 ## Downloads
 
-- [Trained NSRM checkpoint]()
+- [Trained NSRM checkpoint](nsrmp/model_saves/model_release.pth)
 - [Trained baseline checkpoint]()
 - [Dataset (train/val/test)]()
 - [Dataset (Generalization experiments)]()
@@ -111,12 +113,9 @@ We have trained and tested the code on
 ## Training
 
 ### Training NSRM End-to-End
-#### Single-step training
 ```bash
-jac-crun 0 scripts/train_single_step.py --dataset roboclevr --datadir <path_to_dataset>  --vocab_json <path_to_dataset>/vocab.json --instruction_transform program_parser_candidates --use_cuda True --batch_size 32 --num_epochs 300  --model_save_interval 1 --training_target all --eval_interval 10   
+jac-crun 0 scripts/train.py --dataset roboclevr --datadir <path_to_dataset>  --vocab_json <path_to_dataset>/vocab.json --instruction_transform program_parser_candidates --use_cuda True --batch_size 32 --num_epochs 300  --model_save_interval 1 --training_target all --eval_interval 10   
 ```
-#### Multi-step training
-TODO
 
 ### Abalations
 - The contribution of the Language Reasoner can be efaced by using the ground truth symbolic-program. Set the ```--training_target``` flag to ```concept_embeddings``` to train the visual and Action Modules using ground truth symbolic programs. That is,
