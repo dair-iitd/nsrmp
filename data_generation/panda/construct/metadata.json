@@ -1,0 +1,37 @@
+{
+    "attributes":
+    {
+        "Color":["Blue", "Green", "Red", "Cyan", "Yellow", "Magenta", "White"],
+        "Type": ["Cube", "Lego", "Dice"]
+    },
+    "actions":
+    {
+        "move" :["LEFT", "RIGHT", "TOP"],
+        "idle": []
+    },
+    "relations":
+    {
+        "spatial_relations": ["left", "right", "behind", "front", "above", "below"]  
+    },
+    "synonyms":
+    {
+        "sphere": ["sphere", "ball"],
+        "cube": ["cube", "box"],
+        "block": ["block", "thing", "object"],
+        "large": ["large", "big"],
+        "small": ["small", "tiny", "little"],
+        "metal": ["metallic", "metal", "shiny"],
+        "rubber": ["rubber", "matte"],
+        "top_a" : ["on top of", "above"],
+        "left_a": ["to the left of", "on the left side of"],
+        "right_a": ["to the right of", "on the right side of"],
+        "left" : ["at the left of", "which is to the left of"],
+        "right" :["at the right of", "which is to the right of"],
+        "behind": ["behind", "which is behind"],
+        "front": ["in front of", "which is in front of"],
+        "above": ["above", "which is above", "on top of", "which is on top of"],
+        "below": ["below", "which is below"],
+        "put": ["put", "place", "move"],
+        "which": ["which", "that"]
+      }
+}

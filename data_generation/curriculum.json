@@ -1,0 +1,15 @@
+{
+    "train_count_downscale": 1,
+    "val_count_downscale": 4,
+    "test_count_downscale": 4,
+    "categories":[
+        {
+            "type":"any",
+            "num_objects":15,
+            "steps":2,
+            "relational": true,
+            "language":"simple",
+            "count": 10
+        }
+    ]
+}

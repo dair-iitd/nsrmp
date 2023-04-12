@@ -1,0 +1,285 @@
+[
+    {
+        "template_id":1,
+        "num_step": 1,
+        "relational": true,
+        "text": {
+            "simple": [
+                "Put the block <R1> the <C1> <T1> <A1> the <C2> <T2>"
+            ],
+            "complex":[
+                "put the block <R1> the <C1> <T1> <A1> the <T2> which is <C2> in color"
+            ],
+            "compound":[
+                "put the block <R1> the <C1> <T1> <A1> the block which is a <T2> and <C2> in color",
+                "put the block <R1> the <C1> <T1> <A1> the block which is a <T2> and <C2> in color"
+            ]
+        },
+        "constraints": {
+            "actions": [],
+            "inputs": [
+                1,
+                2
+            ]
+        },
+        "num_unique_actions": 1,
+        "num_unique_objects": 2,
+        "num_relations" : 1,
+        "nodes":[
+            {
+                "type": "idle",
+                "inputs": [],
+                "value_inputs": [],
+                "action": true
+            },
+            {
+                "type": "scene",
+                "inputs": [],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "filter_type",
+                "inputs": [1],
+                "value_inputs": ["<T1>"],
+                "action": false
+            },
+            {
+                "type": "filter_color",
+                "inputs": [2],
+                "value_inputs": ["<C1>"],
+                "action": false   
+            },
+            {
+                "type": "relate",
+                "inputs": [3],
+                "value_inputs": ["<R1>"],
+                "action": false
+            },
+            {
+                "type": "unique",
+                "inputs": [4],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "scene",
+                "inputs": [],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "filter_type",
+                "inputs": [6],
+                "value_inputs": ["<T2>"],
+                "action": false
+            },
+            {
+                "type": "filter_color",
+                "inputs": [7],
+                "value_inputs": ["<C2>"],
+                "action": false
+            },
+            {
+                "type": "unique",
+                "inputs": [8],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "move",
+                "inputs": [5,9,0],
+                "value_inputs": ["<A1>"],
+                "action": true
+            }
+        ]
+    },
+    {
+        "template_id":2,
+        "num_step": 1,
+        "relational": true,
+        "text": {
+            "simple": [
+                "Put the <C1> <T1> <A1> the block <R1> the <C2> <T2>"
+            ],
+            "complex":[
+                "put the <T1> which is <C1> in color <A1> the block <R1> the <C2> <T2>"
+            ],
+            "compound":[
+                "put the block which is a <T1> and <C1> in color <A1> the block <R1> the <C2> <T2>"
+            ]
+        },
+        "constraints": {
+            "actions": [],
+            "inputs": [
+                1,
+                2
+            ]
+        },
+        "num_unique_actions": 1,
+        "num_unique_objects": 2,
+        "num_relations" : 1,
+        "nodes":[
+            {
+                "type": "idle",
+                "inputs": [],
+                "value_inputs": [],
+                "action": true
+            },
+            {
+                "type": "scene",
+                "inputs": [],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "filter_type",
+                "inputs": [1],
+                "value_inputs": ["<T1>"],
+                "action": false
+            },
+            {
+                "type": "filter_color",
+                "inputs": [2],
+                "value_inputs": ["<C1>"],
+                "action": false   
+            },
+            {
+                "type": "unique",
+                "inputs": [3],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "scene",
+                "inputs": [],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "filter_type",
+                "inputs": [5],
+                "value_inputs": ["<T2>"],
+                "action": false
+            },
+            {
+                "type": "filter_color",
+                "inputs": [6],
+                "value_inputs": ["<C2>"],
+                "action": false
+            },
+            {
+                "type": "relate",
+                "inputs": [7],
+                "value_inputs": ["<R1>"],
+                "action": false
+            },
+            {
+                "type": "unique",
+                "inputs": [8],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "move",
+                "inputs": [4,9,0],
+                "value_inputs": ["<A1>"],
+                "action": true
+            }
+        ]
+    },
+    {
+        "template_id":3,
+        "num_step": 1,
+        "relational": true,
+        "text": {
+            "simple": [
+                "Put the block <R1> the <C1> <T1> <A1> the block <R2> the <C2> <T2>"
+            ]
+        },
+        "constraints": {
+            "actions": [],
+            "inputs": [
+                1,
+                2
+            ]
+        },
+        "num_unique_actions": 1,
+        "num_unique_objects": 2,
+        "num_relations" : 2,
+        "nodes":[
+            {
+                "type": "idle",
+                "inputs": [],
+                "value_inputs": [],
+                "action": true
+            },
+            {
+                "type": "scene",
+                "inputs": [],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "filter_type",
+                "inputs": [1],
+                "value_inputs": ["<T1>"],
+                "action": false
+            },
+            {
+                "type": "filter_color",
+                "inputs": [2],
+                "value_inputs": ["<C1>"],
+                "action": false   
+            },
+            {
+                "type": "relate",
+                "inputs": [3],
+                "value_inputs": ["<R1>"],
+                "action": false
+            },
+            {
+                "type": "unique",
+                "inputs": [4],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "scene",
+                "inputs": [],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "filter_type",
+                "inputs": [6],
+                "value_inputs": ["<T2>"],
+                "action": false
+            },
+            {
+                "type": "filter_color",
+                "inputs": [7],
+                "value_inputs": ["<C2>"],
+                "action": false
+            },
+            {
+                "type": "relate",
+                "inputs": [8],
+                "value_inputs": ["<R2>"],
+                "action": false
+            },
+            {
+                "type": "unique",
+                "inputs": [9],
+                "value_inputs": [],
+                "action": false
+            },
+            {
+                "type": "move",
+                "inputs": [5,10,0],
+                "value_inputs": ["<A1>"],
+                "action": true
+            }
+        ]
+    }   
+]

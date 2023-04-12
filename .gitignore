@@ -2,13 +2,11 @@ data_temp/
 nsrmp/namas@*
 data_multistep/
 data_3step/
-model_saveS
 data/
 data_0.0/
 data_1.0/
 data_new/
 data_3step_new/
-data*/
 data_old_new/
 data_old/
 .ipynb_checkpoints

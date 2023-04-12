@@ -1,0 +1,38 @@
+{
+    "op": "move", 
+    "action_concept": ['top'], 
+    "param_type": "action_concept", 
+    "action": True, "output": ["world"], 
+    "inputs": [
+        {
+            "op": "filter",
+            "attribute_concept": ["magenta"], 
+            "param_type": "attribute_concept", 
+             "action": False, 
+            "output": [0], 
+            "inputs": [{
+                "op": 'filter', 
+                'attribute_concept': ['lego'], 
+                'param_type': 'attribute_concept',
+                 'action': False, 'output': [0], 
+                 'inputs': [{'op': 'scene', 'action': False, 'output': [0, 1, 2, 3, 4], 'inputs': []}], 
+                 'attribute_concept_idx': 1, 'attribute_concept_values': [['magenta'], ['lego'], ['cyan'], ['cube']]}],
+                 
+                 
+
+                 'attribute_concept_idx': 0, 'attribute_concept_values': [['magenta'], ['lego'], ['cyan'], ['cube']]}, 
+        
+        
+                 {'op': 'filter', 
+                 'attribute_concept': ['cyan'], 'param_type': 'attribute_concept', 
+                 'action': False, 'output': [2], 
+                 'inputs': [{'op': 'filter', 'attribute_concept': ['cube'], 
+                 'param_type': 'attribute_concept', 
+                 'action': False, 'output': [1, 2, 3, 4], '
+                 inputs': [{'op': 'scene', 'action': False, 'output': [0, 1, 2, 3, 4], 'inputs': []}], 
+                 'attribute_concept_idx': 3, 'attribute_concept_values': [['magenta'], ['lego'], ['cyan'], ['cube']]}], 
+                 'attribute_concept_idx': 2, 'attribute_concept_values': [['magenta'], ['lego'], ['cyan'], ['cube']]}, 
+                 
+                 {'op': 'idle', 'action': True, 'output': ['world'], 'inputs': []}], 
+                 
+                 'action_concept_idx': 0, 'action_concept_values': [['top']]}
