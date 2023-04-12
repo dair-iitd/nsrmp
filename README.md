@@ -98,7 +98,7 @@ TODO
 
 ## Downloads
 
-- [Trained NSRM checkpoint](nsrmp/model_saves/model_release.pth)
+- [Trained NSRM checkpoint](./model_saves/model_release.pth)
 - [Trained baseline checkpoint]()
 - [Dataset (train/val/test)]()
 - [Dataset (Generalization experiments)]()
@@ -135,7 +135,7 @@ TODO
 
 ## Data Generation
 
-The break-up of the dataset used is defined in [curriculum.json](nsrmp/data_generation/curriculum.json). It can be modified to generate examples of any particular kind.
+The break-up of the dataset used is defined in [curriculum.json](./data_generation/curriculum.json). It can be modified to generate examples of any particular kind.
 
 Each entry in categories has the following paramaters:
 - **type**: *any* (cube/lego/dice) or *cube* (only cube)
