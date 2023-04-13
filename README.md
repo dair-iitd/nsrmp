@@ -1,7 +1,7 @@
 # Neuro-symbolic Robot Manipulation (NSRM)
 
 [**Learning Neuro-symbolic Programs for Language Guided Robot Manipulation**](https://arxiv.org/abs/2211.06652)  
-Namasivayam Kalithasan, Himanshu Singh, Vishal Bindal, Arnav Tuli, Vishwajeet Agrawal, Rahul Jain, Parag Singla, Rohan Paul     
+Namasivayam Kalithasan*, Himanshu Singh*, Vishal Bindal*, Arnav Tuli, Vishwajeet Agrawal, Rahul Jain, Parag Singla, Rohan Paul     
 [ICRA 2023](https://www.icra2023.org/) 
 
 For the latest updates, see: [nsrmp.github.io](https://nsrmp.github.io)
@@ -98,7 +98,7 @@ TODO
 
 ## Downloads
 
-- [Trained NSRM checkpoint](nsrmp/model_saves/model_release.pth)
+- [Trained NSRM checkpoint](./model_saves/model_release.pth)
 - [Trained baseline checkpoint]()
 - [Dataset (train/val/test)]()
 - [Dataset (Generalization experiments)]()
@@ -135,7 +135,7 @@ TODO
 
 ## Data Generation
 
-The break-up of the dataset used is defined in [curriculum.json](nsrmp/data_generation/curriculum.json). It can be modified to generate examples of any particular kind.
+The break-up of the dataset used is defined in [curriculum.json](./data_generation/curriculum.json). It can be modified to generate examples of any particular kind.
 
 Each entry in categories has the following paramaters:
 - **type**: *any* (cube/lego/dice) or *cube* (only cube)
