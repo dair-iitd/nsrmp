@@ -16,7 +16,6 @@ try.ipynb
 */*/*/__pycache__
 */*/*/*/__pycache__
 __pycache__
-basline/
 *.ipynb
 *.pyc
 nsrmp/runs/
@@ -31,7 +30,6 @@ nsrmp/wandb
 */*/*/*.pyc
 dumps
 new_saved/
-nn/
 nsrmp/plan-gt.png
 nsrmp/plan-predicted.png
 nsrmp/recorded.mp4
