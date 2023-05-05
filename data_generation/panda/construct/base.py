@@ -48,7 +48,6 @@ class ConstructBase(PandaWorld):
 		w = self.width
 		h = self.height
 		instance_dir = self.instance_dir
-		# instance_dir = '/home/vishal/projects/nsrmp/new_saved'
 		_, _, rgba, depth, mask = self.bullet_client.getCameraImage(width = w, height = h)
 		# Get Instance Folder
 		demo_states = [os.path.join(instance_dir, f) for f in os.listdir(instance_dir)]

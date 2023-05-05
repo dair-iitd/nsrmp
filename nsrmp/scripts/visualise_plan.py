@@ -1,7 +1,6 @@
 '''
 Currently only works if any given object is moved atmost once (i.e. an object moved once is not moved again in further steps)
-
-To make it work for cases not included above, need to save intermediate scenes in dataset 
+To make it work for cases not included above, we need to save intermediate scenes in dataset 
 
 Note: 
 pip uninstall opencv-python
@@ -10,16 +9,7 @@ pip install --no-binary opencv-python opencv-python
 
 import os
 import argparse
-import time
 import torch
-import numpy as np
-
-import sys
-sys.path.append("/home/vishal/projects/nsrmp")
-
-from PIL import Image
-
-from PIL import Image
 import cv2
 import numpy as np
 import os
@@ -42,11 +32,10 @@ parser.add_argument('--width', default=1024, help='Width of GUI Window')
 parser.add_argument('--height', default=768, help='Height of GUI Window')
 parser.add_argument('--root_dir', default=os.getcwd(), metavar='DIR', help='Root Directory')
 
-# parser.add_argument('--model_path', default="/home/himanshu/Desktop/nsrmp/model_saves/model_explicit_action_concept_2step_new.pth")
-parser.add_argument('--model_path', default="/home/namas/Desktop/nsrmp/model_saves/model_final_single_step_relational.pth")
-parser.add_argument('--example_path', default='/home/vishal/projects/nsrmp/data_new/test/00015')
+parser.add_argument('--model_path', default="./model_saves/model_final_single_step_relational.pth")
+parser.add_argument('--example_path', default='./examples/00001')
 parser.add_argument('--datadir', type = str, default = '../data/')
-parser.add_argument('--vocab_json', default='/home/namas/Desktop/nsrmp/data/vocab.json')
+parser.add_argument('--vocab_json', default='./nsrmp/vocab_new.json')
 parser.add_argument('--training_target', default = 'splitter')
 parser.add_argument('--use_cuda', type=bool, default = True)
 parser.add_argument('--instruction_transform', type = str, default = 'basic')
@@ -95,10 +84,9 @@ if args.predicted:
 	if args.use_cuda:
 		model.cuda()
 
-	# model.load_state_dict(torch.load(args.model_path))
 	from helpers.mytorch.base.serialization import load_state_dict
 	load_state_dict(model, args.model_path, partial = True, modules = ['parser','resnet','visual','action_sim','concept_embeddings'])
-	load_state_dict(model,'/home/himanshu/Desktop/nsrmp/model_saves/splitter_relational_2.pth', partial = True, modules = ['multi_step_builder'])
+	load_state_dict(model,'./model_saves/splitter_relational_2.pth', partial = True, modules = ['multi_step_builder'])
 	model.eval()
 
 	kwargs = dict(unique_mode = 'argmax', gumbel_tau = 0.00001)

@@ -1,8 +1,4 @@
-from py import process
-from construct import construct_main
 import json
-import configs
-import random
 import os
 import subprocess
 import tempfile
@@ -23,7 +19,7 @@ with open('curriculum.json', 'r') as f:
 
 processes = []
 
-for dataset in ['train']:
+for dataset in ['train', 'test', 'val']:
     count_downscale = data[dataset + '_count_downscale']
 
     for c, category in enumerate(data['categories']):

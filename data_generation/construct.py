@@ -7,7 +7,6 @@
 import sys
 
 import os
-import numpy as np
 import argparse
 import configs
 from manage import remove_sample
@@ -17,7 +16,6 @@ import numpy as np
 from panda.settings import camera_settings, ColorList
 from panda.construct.program_generator import ProgramGenerator
 import random
-import json
 
 def construct_main(template_file, metadata_file, fps=240., width=1024, height=768, dataset_dir='dir', objects=None):
   """

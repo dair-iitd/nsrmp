@@ -6,9 +6,8 @@ from torch.optim import Adam
 from sklearn.model_selection import train_test_split
 import os
 
-# SCENES_JSON_PATH = '/home/namas/Desktop/nsrmp/data/scenes-train.json'
-SCENES_JSON_PATH = '/home/vishal/projects/nsrmp/data_new/scenes-train.json'
-MODEL_PATH = '/home/vishal/projects/nsrmp/nsrmp/model_saves/pixel2world-4.pth'
+SCENES_JSON_PATH = 'scenes-train.json'
+MODEL_PATH = './model_saves/pixel2world.pth'
 
 batch_size = 32
 
