@@ -73,9 +73,21 @@ jac-crun 0 scripts/eval.py --dataset roboclevr --datadir <path_to_dataset> --voc
 
 ### Evaluate baseline
 
-TODO
+Run the command below to evaluate the performance of baseline model on given dataset:  
+`<baseline_type>`: Type of baseline used ('single': only supports single-step instructions, 'multi': supports instructions of arbitrary length)  
+`<path_to_model>`: Absolute path to the baseline checkpoint
+
+```bash
+python3 scripts/test_baseline.py --datadir <path_to_dataset> --type <baseline_type> --load_model <path_to_model>
 ```
-```
+
+[OPTIONAL] Arguments:  
+**--use_cuda**: Use CUDA or not (default: True)  
+**--num_steps**: Range of lengths of instructions. For e.g., `--num_steps a b` filters examples where the number of steps in execution are > a and <= b (default: 0 2)  
+**--num_objects**: Range of number of objects in scene. For e.g., `--num_objects a b` filters examples where the number of objects in scene are > a and <= b (default: 0 5)  
+**--language_complexity**: Filter complexity of natural language instructions. For e.g., `simple` and `complex` (default: None)  
+**--remove_relational**: Filter out examples involving spatial reasoning (default: False)  
+**--only_relational**: Filter examples involving spatial reasoning (default: False)  
 
 ### Simulate an example
 
@@ -127,7 +139,48 @@ jac-crun 0 scripts/train_single_step.py --dataset roboclevr --datadir <path_to_d
 
 ### Training baseline
 
-TODO
+Run the command below to train the baseline model on given dataset:  
+`<baseline_type>`: Type of baseline used ('single': only supports single-step instructions, 'multi': supports instructions of arbitrary length)  
+
+```bash
+python3 scripts/train_baseline.py --datadir <path_to_dataset> --type <baseline_type>
+```
+
+[OPTIONAL] Arguments:  
+**--use_cuda**: Use CUDA or not (default: True)  
+**--batch_size**: Size of batch during training (default: 32)  
+**--num_epochs**: Number of training epochs (default: 200)  
+**--save_model**: Name with which to store the model dict (in `model_saves` directory) (default: None)  
+**--load_model**: Name from which to load the model dict (in `model_saves` directory) (default: None)  
+**--save_spliiter**: (only for `multi` type) Whether to store model's splitter dict or not (default: False)  
+**--load_splitter**: (only for `multi` type) Whether to load model's spliiter dict or not (default: False)  
+**--save_interval**: Model save interval (in epochs) (default: 5)  
+**--use_iou_loss**: Use IoU loss or not (during training) (default: False)  
+**--train_splitter**: (only for `multi` type) Train model's splitter or not (default: False)  
+**--num_steps**: Range of lengths of instructions. For e.g., `--num_steps a b` filters examples where the number of steps in execution are > a and <= b (default: 0 2)  
+**--num_objects**: Range of number of objects in scene. For e.g., `--num_objects a b` filters examples where the number of objects in scene are > a and <= b (default: 0 5)  
+**--language_complexity**: Filter complexity of natural language instructions. For e.g., `simple` and `complex` (default: None)  
+**--remove_relational**: Filter out examples involving spatial reasoning (default: False)  
+**--only_relational**: Filter examples involving spatial reasoning (default: False)  
+**--wandb**: Use WandB for logging training losses and model parameters (default: False)  
+
+Training of baseline model on the given dataset is achieved by the following pipeline:
+- Train baseline on examples consisting of single-step commands and upto 5 objects without IoU loss
+```bash
+python3 scripts/train_baseline.py --datadir <path_to_dataset> --type single --save_model <single_step_path> --num_steps 0 1
+```
+- Fine-tune trained model on the same dataset with IoU loss
+```bash
+python3 scripts/train_baseline.py --datadir <path_to_dataset> --type single --save_model <single_step_path> --num_steps 0 1 --load_model <single_step_path> --use_iou_loss True
+```
+- Using model trained on single-step commands, train model (with splitter) on examples consisting of upto two-step commands and upto 5 objects with IoU loss
+```bash
+python3 scripts/train_baseline.py --datadir <path_to_dataset> --type multi --save_model <multi_step_path> --load_model <single_step_path> --use_iou_loss True --train_splitter True
+```
+- Freeze model's splitter, and fine-tune the model further
+```bash
+python3 scripts/train_baseline.py --datadir <path_to_dataset> --type multi --save_model <multi_step_path> --load_model <multi_step_path> --use_iou_loss True
+```
 
 ### Training image-reconstructor
 
